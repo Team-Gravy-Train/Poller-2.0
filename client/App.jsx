@@ -6,6 +6,7 @@ import Signup from './pages/Signup';
 import CreatePoll from './pages/CreatePoll';
 import TakePoll from './pages/TakePoll';
 import { DisplayPoll, UpdateTable } from "./pages/DisplayPoll";
+import NavBar from './pages/NavBar';
 
 {/* <Route path='/' element={<Homepage />} /> */}
 
@@ -20,14 +21,13 @@ function App() {
 
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light ">
-      <ul className="navbar-nav float-end">  
-        <li className="nav-link"><Link to='/login'>Login</Link></li>
-        <li className="nav-link"><Link to='/signup'>Sign-up</Link></li>
-        <li className="nav-link"><Link to='/'>Home</Link></li> 
-        <li className="nav-link"><Link to='/1/display'>Display1</Link></li>
-      </ul>
-    </nav>
+    <div className='navbar'>
+        <NavBar />
+        
+      </div>
+  
+    
+    
 
       <Routes>
         <Route path='/' element={<CreatePoll />} />

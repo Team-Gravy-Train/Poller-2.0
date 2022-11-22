@@ -22,6 +22,10 @@
   },
   "homepage": "https://github.com/Red-lipped-Batfish-54/scratch#readme",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.15",
+    "@mui/material": "^5.10.15",
     "chart.js": "^4.0.1",
     "concurrently": "^7.5.0",
     "cookie-parser": "^1.4.6",
