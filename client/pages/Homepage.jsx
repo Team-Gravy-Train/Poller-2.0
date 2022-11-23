@@ -39,8 +39,8 @@ const Homepage = () => {
   /////////// begin code
   const navigate = useNavigate();
   // polls state - need poll_id (params) and poll_name
-  // const [pollID, setPollID] = useState([]);
-  // const [pollName, setPollName] = useState([]);
+  const [pollID, setPollID] = useState([]);
+  const [pollName, setPollName] = useState([]);
 
   const [pollData, setPollData] = useState([]);
 
@@ -59,8 +59,11 @@ const Homepage = () => {
       });
   }, []);
 
-  //   for (let i = 0; i < pollData.length; i++)
-  //  {}
+    for (let i = 0; i < pollData.length; i++)
+   {}
+
+
+
   //render all poll names
   // render dropdown pollnames, when click on pollnames use id to take to correct display page
   return (
