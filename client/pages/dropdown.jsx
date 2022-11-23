@@ -56,7 +56,7 @@ export default function Dropdown(props) {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
         {pollData.map((el) => (
-          <ListItemButton sx={{ pl: 4 }} key= {el.poll_id}>
+          <ListItemButton sx={{ pl: 4 }} key= {el.poll_id} href={`/poll/${el.poll_id}`}>
               <ListItemIcon>
             < AcUnitIcon  />
           </ListItemIcon>
