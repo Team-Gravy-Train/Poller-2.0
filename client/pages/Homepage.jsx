@@ -7,14 +7,10 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
+
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react' ;
+
 
 const cardStyle = {
   display: "block",
@@ -28,21 +24,50 @@ const cardStyle = {
 
 
 
-
-
-
-export default function Homepage() {
-
+////// brainstorm
+  //functions
 // function to get all polls made by user
+//use params
+//use effect
+//
+
+//react context??
+
+//put them in state with params for accessing
+//create dropdown
+//when click on poll, access by params
+  //take to DISPLAY page of poll
+// when click on add poll
+  // take to create poll page
+
+ const Homepage = () => {
+  /////////// begin code
+  const navigate = useNavigate();
+  // polls state - need poll_id (params) and poll_name
+  const [pollID, setPollID] = useState([]);
+  const [pollName, setPollName] = useState([])
+
+  // use effect & fetch to get all poll names 
+  // use effect & fetch to get all poll ids
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/poll`)
+    .then(data => data.json())
+    .then(data => {
+      console.log(data)
+      setPollID(data.poll_id);
+    })
+    .catch((err) => {
+      log: "Error was found"
+    })
+  }, []);
 
 
 
 
 
-
-
-
-
+//render all poll names
+// render dropdown pollnames, when click on pollnames use id to take to correct display page
 
   return (
     <div className= 'all homepage'>
@@ -64,7 +89,8 @@ export default function Homepage() {
         </Card>
       </div>
     </div>
-  </div>
+
+  )
 }
 
-export default Homepage
+export default Homepage;
