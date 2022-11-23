@@ -17,18 +17,23 @@ middleware.signUp = async (req, res, next) => {
 
 // Log In
 middleware.logIn = async (req, res, next) => {
-    const { username, password } = req.body;
-    const values = [username, password];
-    const newLoginQuery = `SELECT * FROM users WHERE username = $1 AND password = $2;`;
-    const loginResult = await db.query(newLoginQuery, values);
-    if (!loginResult) res.locals.result = 'Sorry that usename or password are not correct';
-    else res.locals.result = loginResult.rows[0];
-    return next();
+    try {
+        const { username, password } = req.body;
+        const values = [username, password];
+        const newLoginQuery = `SELECT * FROM users WHERE username = $1 AND password = $2;`;
+        const loginResult = await db.query(newLoginQuery, values);
+        console.log('IM INSIDE THE LOGIN MIDDLEWARE')
+        if (loginResult.rowCount === 0) res.locals.result = 'Sorry that username or password are not correct';
+        else res.locals.result = loginResult.rows[0].username;
+        return next();
+    } catch (err) {
+        return next(err)
+    }
 }
 
 // Session Authentication
 middleware.verifyUser = (req, res, next) => {
-    res.locals = {data: 'I am getting verified!'}
+    res.locals = { data: 'I am getting verified!' }
     next();
     return;
 }

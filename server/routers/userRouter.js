@@ -7,9 +7,9 @@ router.post('/signup', userFunctions.signUp, (req, res) => {
     return;
 })
 
-router.get('/login', userFunctions.logIn, (req, res) => {
-    res.status(200).json(res.locals.result);
-    return;   
+router.post('/login', userFunctions.logIn, (req, res) => {
+    return res.status(200).json(res.locals.result);
+      
 })
 
 router.get('/verify', userFunctions.verifyUser, (req, res) => {

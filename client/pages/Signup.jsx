@@ -29,10 +29,10 @@ function Signup() {
         const data = await result.json();
 
         //data retunred from fetch (from res.locals.result) will equal the username of whoever just signed up
-
-        // setCurrentUser(data);
-        // navigate('/home');
         alert(`${data} has signed up and is logged in`)
+        // setCurrentUser(data);
+        navigate('/homepage');
+        
     }
 
     return (

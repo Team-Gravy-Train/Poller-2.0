@@ -11,11 +11,8 @@ function Login() {
 
     const getUser = async (e) => {
         e.preventDefault();
-
-        const { username, password } = user;
-
         const reqBody = {
-            method: 'GET',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 username: usernameInput.current.value,
@@ -25,13 +22,12 @@ function Login() {
         // url?
         // added URL you needed
         const result = await fetch('/api/user/login', reqBody);
-        const data = await rseult.json();
+        const data = await result.json();
 
         //data retunred from fetch (from res.locals.result) will equal the username of whoever just logged in
-        
-        // setCurrentUser(data);
-        // navigate('/home');
         alert(`${data} is logged in`)
+        // setCurrentUser(data);
+        navigate('/homepage');
     }
 
     return (
@@ -40,6 +36,7 @@ function Login() {
             <form>
                 <label>
                     <input
+                        ref={usernameInput}
                         type="text"
                         placeholder="Username"
                     ></input>
@@ -48,6 +45,7 @@ function Login() {
             <form>
                 <label>
                     <input
+                        ref={passwordInput}
                         type="password"
                         placeholder="Password"
                     ></input>
