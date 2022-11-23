@@ -20,9 +20,9 @@ function DisplayPoll() {
 
     useEffect(()=>{
         const fetchPolls = async () => {
-            let response = await fetch(`http://localhost:3000/api/poll/${id}/display`)
-        let data = await response.json()
-
+          let response = await fetch(`/api/poll/${id}`)
+          let data = await response.json()
+          console.log(data)
         setPolls(data.poll)
 
         }

@@ -5,9 +5,10 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
+import Dropdown from './dropdown.jsx'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import ListItemButton from '@mui/material/ListItemButton';
 
 const cardStyle = {
   display: 'block',
@@ -18,6 +19,11 @@ const cardStyle = {
   alignItems: 'center',
   justifyContent: 'center',
 };
+const dropStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}
 
 ////// brainstorm
 //functions
@@ -51,8 +57,8 @@ const Homepage = () => {
     fetch('/api/poll')
       .then((data) => data.json())
       .then((data) => {
-        console.log(data);
-        setPollData(data[0].poll_name);
+        // console.log(data);
+        setPollData(data);
       })
       .catch((err) => {
         log: 'Error was found';
@@ -61,11 +67,44 @@ const Homepage = () => {
 
   //   for (let i = 0; i < pollData.length; i++)
   //  {}
+
+  // console.log('polldata length' + pollData.length);
+  const pollIDs = [];
+  const pollNames = [];
+  const dataLoop = () => {
+    for (let i = 0; i < pollData.length; i++) {
+      let pollObj = pollData[i];
+      pollIDs.push(pollObj.poll_id);
+      pollNames.push(pollObj.poll_name);
+    }
+    console.log('pollids' + pollIDs);
+    console.log('pollnames' + pollNames);
+  }
+  dataLoop();
+
+
+//creating ID links to display for dropdown
+// createlinks
+//how do we getdropdown buttons for each poll
+
+
+
+
+
+  // think about how we will know the relationship between the pollname in dropdown and it's id? use an obj?
+
+  // create dropdown menu
+  // add each poll to the dropdown menu ***
+  // add onlick for chosen poll
+    // fetch to that poll
+    // navigate to that poll's display page
+
+
   //render all poll names
   // render dropdown pollnames, when click on pollnames use id to take to correct display page
   return (
     <div className="all homepage">
-      <h1> {pollData}</h1>
+      <h1> </h1>
       <div
         className="mainCard"
         style={{ display: 'flex', justifyContent: 'center' }}
@@ -87,6 +126,12 @@ const Homepage = () => {
           </CardActions>
         </Card>
       </div>
+    <div className='nestedlist'>
+
+    <Dropdown pollData={pollData} />
+    </div>
+
+
     </div>
   );
 };
