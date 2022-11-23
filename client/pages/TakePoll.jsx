@@ -47,12 +47,12 @@ function TakePoll() {
         user: name
       }
       fetch(`http://localhost:3000/api/poll/${id}`, {
-          method: "POST", 
+          method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(dataToSend),
-      }) 
+      })
       navigate(`/${id}/display`);
     }
 
@@ -66,7 +66,7 @@ function TakePoll() {
         </div>
       )
     })
-  
+
     return (
         <div>
             <h1>Take Poll</h1>

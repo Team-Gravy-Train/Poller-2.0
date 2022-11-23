@@ -64,5 +64,7 @@ export default function Homepage() {
         </Card>
       </div>
     </div>
-  );
+  </div>
 }
+
+export default Homepage

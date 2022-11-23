@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route path='/' element={<CreatePoll />} />
         <Route path='/:id' element={<TakePoll />} />
-        <Route path='/:id/display' element={<DisplayPoll />} />
+        <Route path='/poll/:id' element={<DisplayPoll />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/*' element={<h1>Page Not Found</h1>} />
