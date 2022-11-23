@@ -5,9 +5,10 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
+import Dropdown from './dropdown.jsx'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import ListItemButton from '@mui/material/ListItemButton';
 
 const cardStyle = {
   display: 'block',
@@ -18,6 +19,11 @@ const cardStyle = {
   alignItems: 'center',
   justifyContent: 'center',
 };
+const dropStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}
 
 ////// brainstorm
 //functions
@@ -63,9 +69,9 @@ const Homepage = () => {
   //  {}
 
   // console.log('polldata length' + pollData.length);
+  const pollIDs = [];
+  const pollNames = [];
   const dataLoop = () => {
-    const pollIDs = [];
-    const pollNames = [];
     for (let i = 0; i < pollData.length; i++) {
       let pollObj = pollData[i];
       pollIDs.push(pollObj.poll_id);
@@ -77,6 +83,9 @@ const Homepage = () => {
   dataLoop();
 
 
+//creating ID links to display for dropdown
+// createlinks
+//how do we getdropdown buttons for each poll
 
 
 
@@ -89,23 +98,6 @@ const Homepage = () => {
   // add onlick for chosen poll
     // fetch to that poll
     // navigate to that poll's display page
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   //render all poll names
@@ -134,6 +126,12 @@ const Homepage = () => {
           </CardActions>
         </Card>
       </div>
+    <div className='nestedlist'>
+
+    <Dropdown pollData={pollData} />
+    </div>
+
+
     </div>
   );
 };
