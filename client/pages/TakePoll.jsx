@@ -78,7 +78,7 @@ function TakePoll() {
   console.log(pollOptions)
   pollOptions.forEach((option) => {
     checkBoxOptions.push(
-      <div>
+      <div className="indivOption">
         <input value={option} key={option} name='entry' type="radio" onChange={handleCheck}></input>
         <h3>{option}</h3>
         <br></br>
@@ -87,13 +87,16 @@ function TakePoll() {
   })
 
   return (
-    <div>
+    <div className= "takePoll">
       <h1>Take Poll</h1>
       <h2>{prompt}</h2>
       <form onSubmit={submit}>
         {checkBoxOptions}
+     
+        <div className="submitButton">
         <input type='text' onChange={(event) => handle(event)} placeholder="enter your name"></input>
         <input type='submit' value="Submit!"></input>
+        </div>
       </form>
     </div>
   )
