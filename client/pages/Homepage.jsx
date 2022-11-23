@@ -51,8 +51,8 @@ const Homepage = () => {
     fetch('/api/poll')
       .then((data) => data.json())
       .then((data) => {
-        console.log(data);
-        setPollData(data[0].poll_name);
+        // console.log(data);
+        setPollData(data);
       })
       .catch((err) => {
         log: 'Error was found';
@@ -61,11 +61,58 @@ const Homepage = () => {
 
   //   for (let i = 0; i < pollData.length; i++)
   //  {}
+
+  // console.log('polldata length' + pollData.length);
+  const dataLoop = () => {
+    const pollIDs = [];
+    const pollNames = [];
+    for (let i = 0; i < pollData.length; i++) {
+      let pollObj = pollData[i];
+      pollIDs.push(pollObj.poll_id);
+      pollNames.push(pollObj.poll_name);
+    }
+    console.log('pollids' + pollIDs);
+    console.log('pollnames' + pollNames);
+  }
+  dataLoop();
+
+
+
+
+
+
+
+  // think about how we will know the relationship between the pollname in dropdown and it's id? use an obj?
+
+  // create dropdown menu
+  // add each poll to the dropdown menu ***
+  // add onlick for chosen poll
+    // fetch to that poll
+    // navigate to that poll's display page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //render all poll names
   // render dropdown pollnames, when click on pollnames use id to take to correct display page
   return (
     <div className="all homepage">
-      <h1> {pollData}</h1>
+      <h1> </h1>
       <div
         className="mainCard"
         style={{ display: 'flex', justifyContent: 'center' }}
