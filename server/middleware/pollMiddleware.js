@@ -112,6 +112,27 @@ pollMiddleware.getPollById = async (req, res, next) => {
   return next();
 };
 
+pollMiddleware.UpdateVotes = async (req, res, next) => {
+  const { name, id, choice } = req.body;
+  const updateValues = [id, choice];
+  const newVoterValues = [name, id];
+
+  const updateTotalQuery = `UPDATE options
+  SET total = total + 1
+  WHERE choice = $2 AND poller_id = $1
+  RETURNING options_id;`;
+  const updateTotalResult = await db.query(updateTotalQuery, updateValues);
+  const choices_id = updateTotalResult.rows[0].options_id;
+  
+  newVoterValues.push(choices_id);
+  const newVoterQuery = `INSERT INTO results(voter, poller_id, choices_id)
+  VALUES($1, $2, $3)
+  RETURNING voter;`;
+  const newVoteResult = await db.query(newVoterQuery, newVoterValues);
+  console.log(newVoteResult)
+  res.locals.result = newVoteResult.rows[0];
+  return next();
+}
 // pollMiddleware.savePollResponse = (req, res, next) => {
 //   try {
 //     const insert =
