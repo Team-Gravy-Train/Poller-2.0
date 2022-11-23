@@ -24,6 +24,12 @@ const pollRouter = require('./routers/pollRouter.js');
 
 // app.use(cookieParser());
 
+// Handle routes to user functionality
+app.use('/api/user', userRouter);
+
+// Handle routes to poll functionality
+app.use('/api/poll', pollRouter);
+
 // Create routes for index.html, bundle.js, and bundle.js.map
 // We could have served everything in the build folder as static
 // or just send routes for the files we want to use.
@@ -40,12 +46,6 @@ app.get('/bundle.js', (req, res) => {
 app.get('/bundle.js.map', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../build/bundle.js.map'));
 });
-
-// Handle routes to user functionality
-app.use('/api/user', userRouter);
-
-// Handle routes to poll functionality
-app.use('/api/poll', pollRouter);
 
 // Test route for database
 // app.get("/api/flasks", async(req, res)=>{
