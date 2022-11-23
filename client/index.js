@@ -1,17 +1,41 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM, { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
-
 import styles from './stylesheets/styles.css';
 
-// Create a root.
+// import Auth from './routes/AuthRoute/AuthRoute.jsx';
+import Signin from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link
+} from 'react-router-dom';
+
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Login />,
+//   },
+//   {
+//     path: '/signup',
+//     element: <Signup />
+//   }
+// ]);
+
+// createRoot(document.getElementById('root')).render(
+//   <AuthProvider>
+//     <RouterProvider router={router} />
+//   </AuthProvider>
+// )
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// Initial render
 root.render(
-    <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </React.StrictMode>
-    );
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+)

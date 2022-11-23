@@ -7,22 +7,28 @@ export const CreatePoll = () => {
   const [questions, setQuestions] = useState(2);
 
   const handleFormData = async (e) => {
+
     e.preventDefault();
-    const results = [e.target.title.value];
+    const title = e.target.title.value;
+    const options = [];
     for (let i = 1; i <= questions; i++) {
       const answer = `answer${i}`;
-      results.push(e.target[answer].value);
+      options.push(e.target[answer].value);
     }
-
+    console.log(title);
     const response = await fetch('./api/poll', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(results)
+      body: JSON.stringify({ name: title, options: options })
     });
+
     const data = await response.json();
-    navigate(`/${data}`);
+    /*
+    [1, [pizza, hotdogs, burritos]]
+    */
+    navigate(`/poll/${data[0]}`);
   }
 
   const numOfQuestions = [];
