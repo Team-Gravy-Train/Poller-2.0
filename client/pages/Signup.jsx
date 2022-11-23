@@ -17,18 +17,22 @@ function Signup() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({
-                firstName: firstNameInput.current.value,
+                firstname: firstNameInput.current.value,
                 lastname: lastNameInput.current.value,
                 username: usernameInput.current.value,
                 password: passwordInput.current.value
             })
         }
         // what url ?
-        const result = await fetch('', reqBody);
+        //added the url you needed
+        const result = await fetch('/api/user/signup', reqBody);
         const data = await result.json();
 
-        setCurrentUser(data);
-        navigate('/home');
+        //data retunred from fetch (from res.locals.result) will equal the username of whoever just signed up
+        alert(`${data} has signed up and is logged in`)
+        // setCurrentUser(data);
+        navigate('/homepage');
+        
     }
 
     return (
