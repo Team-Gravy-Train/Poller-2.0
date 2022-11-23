@@ -86,78 +86,103 @@ pollMiddleware.newPoll = async (req, res, next) => {
   return next();
 };
 
-pollMiddleware.savePollResponse = (req, res, next) => {
-  try {
-    const insert =
-      'INSERT INTO poll (poll_id, entries, users) VALUES ($1, $2, $3)';
-    const pollId = req.params.id;
-    const users = req.body.user;
-    const entries = req.body.answer;
-    db.query(insert, [pollId, entries, users], (err, res) => {
-      console.log('update successful');
-    });
-    next();
-    return;
-  } catch (err) {
-    console.log(err);
-  }
+pollMiddleware.getAllPolls = async (req, res, next) => {
+  const getAllQuery = `SELECT * FROM poller;`;
+
+  const result = await db.query(getAllQuery);
+
+  res.locals.result = result.rows;
+  return next();
 };
 
-pollMiddleware.getPollResponses = async (req, res, next) => {
-  try {
-    const results = await db.query('SELECT * FROM poll WHERE poll_id = $1', [
-      req.params.id,
-    ]);
-    // console.log('results', results);
-    const data = {
-      status: 'success',
-      results: results.rows.length,
-      poll: results.rows,
-    };
-    res.locals = data;
-    next();
-    return;
-  } catch (err) {
-    next(err);
-    return;
-  }
+pollMiddleware.getPollById = async (req, res, next) => {
+  const pollId = req.params.id;
+  const values = [pollId];
+  console.log(pollId);
+  const getOptionsTotal = `SELECT choice, total FROM options WHERE poller_id = $1;`;
+
+  const optionsResult = await db.query(getOptionsTotal, values);
+  res.locals.result = [optionsResult.rows];
+
+  const voterChoice = `SELECT results.voter, options.choice FROM options RIGHT OUTER JOIN results ON options.options_id = results.choices_id WHERE options.poller_id = $1;`;
+
+  const voterResult = await db.query(voterChoice, values);
+  res.locals.result.push(voterResult.rows);
+  return next();
 };
 
-pollMiddleware.deletePoll = async (req, res, next) => {
-  try {
-    const results = await db.query('DELETE FROM poll WHERE id = $1', [
-      req.params.key,
-    ]);
-    res.locals = results;
-    next();
-    return;
-  } catch (err) {
-    next(err);
-    return;
-  }
-};
-//in progress
-pollMiddleware.updatePoll = async (req, res, next) => {
-  try {
-    const results = await db.query(
-      'UPDATE poll SET users=$1, entries=$2 WHERE id=$3',
-      [req.body.users, req.body.entries, req.params.key]
-    );
-    // console.log(req.params.key)
-    // console.log('results', results);
-    const data = {
-      status: 'success',
-      results: results.rows.length,
-      poll: results.rows[0],
-    };
-    res.locals = data;
-    next();
-    return;
-  } catch (err) {
-    console.log;
-    next(err);
-    return;
-  }
-};
+// pollMiddleware.savePollResponse = (req, res, next) => {
+//   try {
+//     const insert =
+//       'INSERT INTO poll (poll_id, entries, users) VALUES ($1, $2, $3)';
+//     const pollId = req.params.id;
+//     const users = req.body.user;
+//     const entries = req.body.answer;
+//     db.query(insert, [pollId, entries, users], (err, res) => {
+//       console.log('update successful');
+//     });
+//     next();
+//     return;
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+
+// pollMiddleware.getPollResponses = async (req, res, next) => {
+//   try {
+//     const results = await db.query('SELECT * FROM poll WHERE poll_id = $1', [
+//       req.params.id,
+//     ]);
+//     // console.log('results', results);
+//     const data = {
+//       status: 'success',
+//       results: results.rows.length,
+//       poll: results.rows,
+//     };
+//     res.locals = data;
+//     next();
+//     return;
+//   } catch (err) {
+//     next(err);
+//     return;
+//   }
+// };
+
+// pollMiddleware.deletePoll = async (req, res, next) => {
+//   try {
+//     const results = await db.query('DELETE FROM poll WHERE id = $1', [
+//       req.params.key,
+//     ]);
+//     res.locals = results;
+//     next();
+//     return;
+//   } catch (err) {
+//     next(err);
+//     return;
+//   }
+// };
+// //in progress
+// pollMiddleware.updatePoll = async (req, res, next) => {
+//   try {
+//     const results = await db.query(
+//       'UPDATE poll SET users=$1, entries=$2 WHERE id=$3',
+//       [req.body.users, req.body.entries, req.params.key]
+//     );
+//     // console.log(req.params.key)
+//     // console.log('results', results);
+//     const data = {
+//       status: 'success',
+//       results: results.rows.length,
+//       poll: results.rows[0],
+//     };
+//     res.locals = data;
+//     next();
+//     return;
+//   } catch (err) {
+//     console.log;
+//     next(err);
+//     return;
+//   }
+// };
 
 module.exports = pollMiddleware;
