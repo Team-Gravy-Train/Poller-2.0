@@ -9,13 +9,13 @@ export const CreatePoll = () => {
   const handleFormData = async (e) => {
 
     e.preventDefault();
-    const title = [e.target.title.value];
+    const title = e.target.title.value;
     const options = [];
     for (let i = 1; i <= questions; i++) {
       const answer = `answer${i}`;
       options.push(e.target[answer].value);
     }
-
+    console.log(title);
     const response = await fetch('./api/poll', {
       method: 'POST',
       headers: {

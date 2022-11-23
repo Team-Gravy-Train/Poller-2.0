@@ -13,8 +13,6 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import { AuthContext } from './context/AuthContext.jsx';
-import { AuthProvider } from './context/AuthContext.jsx';
 
 // const router = createBrowserRouter([
 //   {

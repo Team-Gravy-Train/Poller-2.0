@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { AuthContext } from '../context/AuthContext.jsx';
+// import { AuthContext } from '../context/AuthContext.jsx';
 import { useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-    const { setCurrentUser } = useContext(AuthContext);
+    // const { setCurrentUser } = useContext(AuthContext);
     const firstNameInput = useRef();
     const lastNameInput = useRef();
     const usernameInput = useRef();

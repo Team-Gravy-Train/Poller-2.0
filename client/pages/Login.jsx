@@ -1,10 +1,10 @@
 import React from "react";
-import { AuthContext } from '../context/AuthContext.jsx';
+// import { AuthContext } from '../context/AuthContext.jsx';
 import { useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    const { setCurrentUser } = useContext(AuthContext);
+    // const { setCurrentUser } = useContext(AuthContext);
     const usernameInput = useRef();
     const passwordInput = useRef();
     const navigate = useNavigate();
