@@ -6,8 +6,10 @@ import Signup from './pages/Signup';
 import CreatePoll from './pages/CreatePoll';
 import TakePoll from './pages/TakePoll';
 import { DisplayPoll, UpdateTable } from "./pages/DisplayPoll";
+import NavBar from './pages/NavBar';
+import Homepage from './pages/Homepage' ;
 
-{/* <Route path='/' element={<Homepage />} /> */}
+{/* */}
 
 function App() {
 
@@ -20,14 +22,12 @@ function App() {
 
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light ">
-      <ul className="navbar-nav float-end">
-        <li className="nav-link"><Link to='/login'>Login</Link></li>
-        <li className="nav-link"><Link to='/signup'>Sign-up</Link></li>
-        <li className="nav-link"><Link to='/'>Home</Link></li>
-        <li className="nav-link"><Link to='/1/display'>Display1</Link></li>
-      </ul>
-    </nav>
+    <div className='navbar'>
+        <NavBar />
+      </div>
+  
+    
+    
 
       <Routes>
         <Route path='/' element={<CreatePoll />} />
@@ -36,6 +36,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/*' element={<h1>Page Not Found</h1>} />
+        <Route path='/homepage' element={<Homepage />} /> 
       </Routes>
     </>
 

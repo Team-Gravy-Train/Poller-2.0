@@ -87,6 +87,7 @@ pollMiddleware.newPoll = async (req, res, next) => {
 };
 
 pollMiddleware.getAllPolls = async (req, res, next) => {
+  console.log('IM INSIDE OF GET ALL POLLS');
   const getAllQuery = `SELECT * FROM poller;`;
 
   const result = await db.query(getAllQuery);

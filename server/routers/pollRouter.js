@@ -19,15 +19,10 @@ const pollMiddleware = require('../middleware/pollMiddleware');
     options: []
 }
 */
+const pollFunctions = require('../middleware/pollMiddleware');
 
 // return value is the poll id & it's options
 router.post('/', pollMiddleware.newPoll, (req, res) => {
-  return res.status(200).json(res.locals.result);
-});
-
-//all the polls names and it's id's
-// array of objects
-router.get('/', pollMiddleware.getAllPolls, (req, res) => {
   return res.status(200).json(res.locals.result);
 });
 
@@ -37,6 +32,17 @@ router.get('/', pollMiddleware.getAllPolls, (req, res) => {
 router.get('/:id', pollMiddleware.getPollById, (req, res) => {
   return res.status(200).json(res.locals.result);
 });
+
+//all the polls names and it's id's
+// array of objects
+router.get('/', pollMiddleware.getAllPolls, (req, res) => {
+  return res.status(200).json(res.locals.result);
+});
+
+// router.post('/:id', pollFunctions.savePollResponse, (req, res) => {
+//     res.status(200).send('update successful');
+//     return;
+// })
 
 // router.post('/:id', pollFunctions.savePollResponse, (req, res) => {
 //     res.status(200).send('update successful');
@@ -54,8 +60,22 @@ router.get('/:id', pollMiddleware.getPollById, (req, res) => {
 // })
 
 // router.put('/:id/:key', pollFunctions.updatePoll, (req, res) => {
+//   res.status(200).json(res.locals);
+//   return;
+// });
+// router.get('/:id/display', pollFunctions.getPollResponses, (req, res) => {
 //     res.status(200).json(res.locals);
 //     return;
 // })
+
+// router.delete('/:id/:key', pollFunctions.deletePoll, (req, res) => {
+//     res.status(204).json(res.locals);
+//     return;
+// })
+
+// router.put('/:id/:key', pollFunctions.updatePoll, (req, res) => {
+//   res.status(200).json(res.locals);
+//   return;
+// });
 
 module.exports = router;
