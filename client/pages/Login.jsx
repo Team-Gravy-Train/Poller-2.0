@@ -23,11 +23,15 @@ function Login() {
             })
         }
         // url?
-        const result = await fetch('', reqBody);
+        // added URL you needed
+        const result = await fetch('/api/user/login', reqBody);
         const data = await rseult.json();
 
-        setCurrentUser(data);
-        navigate('/home');
+        //data retunred from fetch (from res.locals.result) will equal the username of whoever just logged in
+        
+        // setCurrentUser(data);
+        // navigate('/home');
+        alert(`${data} is logged in`)
     }
 
     return (
