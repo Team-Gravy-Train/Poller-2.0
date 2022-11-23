@@ -32,6 +32,18 @@ const cardStyle = {
 
 
 export default function Homepage() {
+
+// function to get all polls made by user
+
+
+
+
+
+
+
+
+
+
   return (
     <div className= 'all homepage'>
      
