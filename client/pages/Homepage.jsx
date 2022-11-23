@@ -51,7 +51,7 @@ const cardStyle = {
   // use effect & fetch to get all poll ids
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/poll`)
+    fetch('/api/poll')
     .then(data => data.json())
     .then(data => {
       console.log(data)
@@ -60,7 +60,7 @@ const cardStyle = {
     .catch((err) => {
       log: "Error was found"
     })
-  }, []);
+  });
 
 
 
