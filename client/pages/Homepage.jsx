@@ -1,28 +1,56 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import NavBar from './NavBar';
 
-export const Homepage = () => {
-  const navigate = useNavigate();
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
-  /*
-  return <div className='container'>
-    <div className="mt-5 mb-3 d-flex justify-content-center"><h1 className="text-align-center">Poll-a-Bear</h1></div>
-    <div className="d-flex justify-content-center">
-      <button onClick={() => navigate('/newPoll')} className="btn btn-primary btn-lg">Create a Poll</button>
-    </div>
-  </div>
-  */
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
 
-  return <>
-   <div className='navbar'>
-        <NavBar />
-        <p> yooooo</p>
+const cardStyle = {
+  display: "block",
+  transitionDuration: "0.3s",
+  height: "45vw",
+  width: '45vw',
+  display: 'flex', 
+  alignItems: 'center', 
+  justifyContent:'center'
+};
+
+
+
+
+
+
+export default function Homepage() {
+  return (
+    <div className= 'all homepage'>
+     
+      <div className='mainCard' style={{ display:'flex', justifyContent:'center'}}>
+        <Card style ={cardStyle} sx={{ minWidth: 275, maxwidth: '500' }}>
+          <CardContent>
+            <Typography sx={{ fontSize: 14, color: 'red' }} color="text.secondary" gutterBottom>
+              Word of the Day
+            </Typography>
+      
+            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+              adjective
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Learn More</Button>
+          </CardActions>
+        </Card>
       </div>
-  
-  </>
+    </div>
+  );
 }
-
-export default Homepage
-
-

@@ -7,8 +7,9 @@ import CreatePoll from './pages/CreatePoll';
 import TakePoll from './pages/TakePoll';
 import { DisplayPoll, UpdateTable } from "./pages/DisplayPoll";
 import NavBar from './pages/NavBar';
+import Homepage from './pages/Homepage' ;
 
-{/* <Route path='/' element={<Homepage />} /> */}
+{/* */}
 
 function App() {
 
@@ -23,7 +24,6 @@ function App() {
     <>
     <div className='navbar'>
         <NavBar />
-        
       </div>
   
     
@@ -36,6 +36,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/*' element={<h1>Page Not Found</h1>} />
+        <Route path='/homepage' element={<Homepage />} /> 
       </Routes>
     </>
 
