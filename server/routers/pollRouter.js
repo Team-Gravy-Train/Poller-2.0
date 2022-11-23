@@ -39,6 +39,10 @@ router.get('/', pollMiddleware.getAllPolls, (req, res) => {
   return res.status(200).json(res.locals.result);
 });
 
+//get vote results and names
+router.post('/votes', pollMiddleware.UpdateVotes, (req, res) =>{
+  return res.status(200).json(res.locals.result); 
+})
 // router.post('/:id', pollFunctions.savePollResponse, (req, res) => {
 //     res.status(200).send('update successful');
 //     return;
