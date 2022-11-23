@@ -15,7 +15,7 @@ function Signup() {
         e.preventDefault();
         const reqBody = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 firstname: firstNameInput.current.value,
                 lastname: lastNameInput.current.value,
@@ -29,16 +29,16 @@ function Signup() {
         const data = await result.json();
 
         //data retunred from fetch (from res.locals.result) will equal the username of whoever just signed up
-        alert(`${data} has signed up and is logged in`)
+        // alert(`${data} has signed up and is logged in`)
         // setCurrentUser(data);
         navigate('/homepage');
-        
+
     }
 
     return (
-        <div>
-            <h1>Sign Up</h1>
-            <form>
+        <div className="box">
+            <h1 className="header">Sign Up</h1>
+            <form className='loginForm'>
                 <label>
                     <input
                         ref={firstNameInput}
@@ -46,8 +46,6 @@ function Signup() {
                         placeholder="First Name"
                     ></input>
                 </label>
-            </form>
-            <form>
                 <label>
                     <input
                         ref={lastNameInput}
@@ -55,8 +53,6 @@ function Signup() {
                         placeholder="Last Name"
                     ></input>
                 </label>
-            </form>
-            <form>
                 <label>
                     <input
                         ref={usernameInput}
@@ -64,8 +60,6 @@ function Signup() {
                         placeholder="Username"
                     ></input>
                 </label>
-            </form>
-            <form>
                 <label>
                     <input
                         ref={passwordInput}
@@ -73,8 +67,6 @@ function Signup() {
                         placeholder="Password"
                     ></input>
                 </label>
-            </form>
-            <form>
                 <button onClick={createUser}>Sign Up!</button>
             </form>
         </div>

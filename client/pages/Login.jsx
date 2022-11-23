@@ -25,15 +25,15 @@ function Login() {
         const data = await result.json();
 
         //data retunred from fetch (from res.locals.result) will equal the username of whoever just logged in
-        alert(`${data} is logged in`)
+        // alert(`${data} is logged in`)
         // setCurrentUser(data);
         navigate('/homepage');
     }
 
     return (
-        <div>
-            <h1>Log In</h1>
-            <form>
+        <div className="box">
+            <h1 className="header">Log In</h1>
+            <form className="loginForm">
                 <label>
                     <input
                         ref={usernameInput}
@@ -41,8 +41,8 @@ function Login() {
                         placeholder="Username"
                     ></input>
                 </label>
-            </form>
-            <form>
+            {/* </form>
+            <form> */}
                 <label>
                     <input
                         ref={passwordInput}
@@ -50,8 +50,8 @@ function Login() {
                         placeholder="Password"
                     ></input>
                 </label>
-            </form>
-            <form>
+            {/* </form>
+            <form> */}
                 <button onClick={getUser}>Log In!</button>
             </form>
         </div>

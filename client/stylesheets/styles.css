@@ -67,4 +67,26 @@ body {
 
   }
 
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 
+.header {
+  margin: 1rem;
+  margin-bottom: 1rem;
+}
+
+.box {
+  border: 1px solid black;
+  background: #8ecae6;
+  padding: 6rem;
+  border-radius: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
