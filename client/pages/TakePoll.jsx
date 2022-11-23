@@ -27,7 +27,7 @@ function TakePoll() {
 
     const handleCheck = (event) => {
         updatedList = [...checked];
-        console.log(updatedList);
+        // console.log(updatedList);
         if (event.target.checked) {
           updatedList = [...checked, event.target.value];
         } else {
