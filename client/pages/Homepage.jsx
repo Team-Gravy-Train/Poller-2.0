@@ -13,17 +13,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 const cardStyle = {
   display: 'block',
   transitionDuration: '0.3s',
-  height: '45vw',
-  width: '45vw',
+  height: '25vw',
+  width: '25vw',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 };
-const dropStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}
+
 
 ////// brainstorm
 //functions
@@ -103,36 +99,31 @@ const Homepage = () => {
   //render all poll names
   // render dropdown pollnames, when click on pollnames use id to take to correct display page
   return (
-    <div className="all homepage">
-      <h1> </h1>
+     
+      <div className='allCards' sx={{display: 'inline flex', flexDirection: "row"}}>
       <div
         className="mainCard"
         style={{ display: 'flex', justifyContent: 'center' }}
       >
-        <Card style={cardStyle} sx={{ minWidth: 275, maxwidth: '500' }}>
-          <CardContent>
-            <Typography
-              sx={{ fontSize: 14, color: 'red' }}
-              color="text.secondary"
-              gutterBottom
-            ></Typography>
-
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-          </CardContent>
+        <Card style={cardStyle} sx={{ minWidth: '120', maxwidth: '300' }}>
           <CardActions>
-            <Button size="small">Learn More</Button>
+            <Button href='/' size="small">Add a Poll</Button>
           </CardActions>
         </Card>
       </div>
-    <div className='nestedlist'>
 
-    <Dropdown pollData={pollData} />
-    </div>
+      <div
+        className="mainCard"
+        style={{ display: 'flex', justifyContent: 'center' }}
+      >
+        <Card style={cardStyle} sx={{ minWidth: '120', maxwidth: '300' }}>
+          <Dropdown pollData={pollData} />
+        </Card>
+      </div>
+      </div>
+   
 
 
-    </div>
   );
 };
 

@@ -54,11 +54,14 @@ body {
     background-color: rgb(35, 112, 227);
   }
 
+ .allcards {
+    display: flex;
+    align-items: space-around;
+ }
 
 
-  .MuiCard-root {
-    background-color: red;
-  }
+
+
 
   h1 {
     display: flex;
@@ -66,5 +69,7 @@ body {
     justify-content: center;
 
   }
+
+
 
 
