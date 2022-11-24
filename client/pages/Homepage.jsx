@@ -128,3 +128,26 @@ const Homepage = () => {
 };
 
 export default Homepage;
+
+
+{/* <div
+className="mainCard"
+style={{ display: 'flex', justifyContent: 'center' }}
+>
+<Card style={cardStyle} sx={{ minWidth: 275, maxwidth: '500' }}>
+  <CardContent>
+    <Typography
+      sx={{ fontSize: 14, color: 'red' }}
+      color="text.secondary"
+      gutterBottom
+    ></Typography>
+
+    <Typography sx={{ mb: 1.5 }} color="text.secondary">
+      adjective
+    </Typography>
+  </CardContent>
+  <CardActions>
+    <Button size="small">Learn More</Button>
+  </CardActions>
+</Card>
+</div> */}
