@@ -1,10 +1,8 @@
 body {
     margin: 0px;
     line-height: 1.3;
-    font-family: 'Source Sans Pro', sans-serif;
-    background-color: rgb(240, 208, 208);
-    background-image: url(https://i.pinimg.com/736x/aa/db/56/aadb5612d8eb7361ab03c3d7e2b07762.jpg);
-    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white
 }
 
 
@@ -13,7 +11,7 @@ body {
 }
 
 .displayPoll {
-    background-image: url(https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=2000);
+    /* background-image: url(https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=2000); */
     background-size: cover;
     display: flex;
     width: 100%;
@@ -44,4 +42,87 @@ body {
 
 .form-wrapper {
     width: 40%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+.MuiToolbar-root {
+    background-color: #023047;
+  }
+
+
+
+  h1 {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+
+  }
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header {
+  margin: 1rem;
+  margin-bottom: 1rem;
+}
+
+.box {
+  border: 1px solid #023047;
+  background: #8ecae6;
+  padding: 6rem;
+  border-radius: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.takePoll {
+  border: 1px solid black;
+  background: #219ebc;
+  color: #d0dee4;
+  padding: 6rem;
+  border-radius: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.indivOption {
+  display: flex;
+  gap: 3rem;
+}
+
+.submitButton {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+
+.submitButton {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.mainCard {
+  background-color: #457b9d;
 }
