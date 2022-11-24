@@ -12,17 +12,17 @@ function TakePoll() {
 
     useEffect(() => {
       const fetchPollQuestions = async () => {
-        const response = await fetch(`http://localhost:3000/api/poll/${id}`)
+        const response = await fetch(`/api/poll/${id}`)
         return await response.json();
       }
 
       fetchPollQuestions()
-      .then((accessPoll) => {
-        const pollOptionsArray = accessPoll.pollOptionsArray;
-        setPollOptions(pollOptionsArray);
-        const pollPrompt = accessPoll.pollPrompt;
-        setPrompt(pollPrompt);
-      })
+        .then((accessPoll) => {
+          const pollOptionsArray = accessPoll.pollOptionsArray;
+          setPollOptions(pollOptionsArray);
+          const pollPrompt = accessPoll.pollPrompt;
+          setPrompt(pollPrompt);
+        })
     }, [])
 
     const handleCheck = (event) => {
@@ -46,7 +46,7 @@ function TakePoll() {
         answer: checked[0],
         user: name
       }
-      fetch(`http://localhost:3000/api/poll/${id}`, {
+      fetch(`/api/poll/${id}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
