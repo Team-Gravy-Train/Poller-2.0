@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     line-height: 1.3;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: white
 }
 
@@ -51,7 +51,7 @@ body {
 
 
 .MuiToolbar-root {
-    background-color: rgb(35, 112, 227);
+    background-color: #023047;
   }
 
 
@@ -67,4 +67,55 @@ body {
 
   }
 
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 
+.header {
+  margin: 1rem;
+  margin-bottom: 1rem;
+}
+
+.box {
+  border: 1px solid #023047;
+  background: #8ecae6;
+  padding: 6rem;
+  border-radius: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.takePoll {
+  border: 1px solid black;
+  background: #219ebc;
+  color: #d0dee4;
+  padding: 6rem;
+  border-radius: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.indivOption {
+  display: flex;
+  gap: 3rem;
+}
+
+.submitButton {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}

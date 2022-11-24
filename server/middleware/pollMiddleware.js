@@ -113,6 +113,7 @@ pollMiddleware.getPollById = async (req, res, next) => {
 };
 
 pollMiddleware.UpdateVotes = async (req, res, next) => {
+  console.log('IM INSIDE OF UPDATE VOTES')
   const { name, id, choice } = req.body;
   const updateValues = [id, choice];
   const newVoterValues = [name, id];
