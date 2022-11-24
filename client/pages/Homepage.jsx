@@ -5,7 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Dropdown from './dropdown.jsx'
+import Dropdown from './dropdown.jsx';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -19,7 +19,6 @@ const cardStyle = {
   alignItems: 'center',
   justifyContent: 'center',
 };
-
 
 ////// brainstorm
 //functions
@@ -75,43 +74,50 @@ const Homepage = () => {
     }
     console.log('pollids' + pollIDs);
     console.log('pollnames' + pollNames);
-  }
+  };
   dataLoop();
 
-
-//creating ID links to display for dropdown
-// createlinks
-//how do we getdropdown buttons for each poll
-
-
-
-
+  //creating ID links to display for dropdown
+  // createlinks
+  //how do we getdropdown buttons for each poll
 
   // think about how we will know the relationship between the pollname in dropdown and it's id? use an obj?
 
   // create dropdown menu
   // add each poll to the dropdown menu ***
   // add onlick for chosen poll
-    // fetch to that poll
-    // navigate to that poll's display page
-
+  // fetch to that poll
+  // navigate to that poll's display page
 
   //render all poll names
   // render dropdown pollnames, when click on pollnames use id to take to correct display page
+  // sx={{ display: 'inline flex', flexDirection: 'row' }}
+
   return (
-     
-      <div className='allCards' sx={{display: 'inline flex', flexDirection: "row"}}>
+    <div
+      id="allCards"
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '1rem',
+        alignItems: 'center',
+      }}
+    >
       <div
         className="mainCard"
-        style={{ display: 'flex', justifyContent: 'center' }}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+        }}
       >
         <Card style={cardStyle} sx={{ minWidth: '120', maxwidth: '300' }}>
           <CardActions>
-            <Button href='/' size="small">Add a Poll</Button>
+            <Button href="/" size="small">
+              Add a Poll
+            </Button>
           </CardActions>
         </Card>
       </div>
-
       <div
         className="mainCard"
         style={{ display: 'flex', justifyContent: 'center' }}
@@ -120,17 +126,14 @@ const Homepage = () => {
           <Dropdown pollData={pollData} />
         </Card>
       </div>
-      </div>
-   
-
-
+    </div>
   );
 };
 
 export default Homepage;
 
-
-{/* <div
+{
+  /* <div
 className="mainCard"
 style={{ display: 'flex', justifyContent: 'center' }}
 >
@@ -150,4 +153,5 @@ style={{ display: 'flex', justifyContent: 'center' }}
     <Button size="small">Learn More</Button>
   </CardActions>
 </Card>
-</div> */}
+</div> */
+}
