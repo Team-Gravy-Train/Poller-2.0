@@ -54,11 +54,14 @@ body {
     background-color: #023047;
   }
 
+ .allcards {
+    display: flex;
+    align-items: space-around;
+ }
 
 
-  .MuiCard-root {
-    background-color: red;
-  }
+
+
 
   h1 {
     display: flex;
@@ -113,6 +116,13 @@ body {
   display: flex;
   gap: 3rem;
 }
+
+.submitButton {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
 
 .submitButton {
   margin-top: 1rem;

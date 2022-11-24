@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Dropdown(props) {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   let pollData = props.pollData
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ export default function Dropdown(props) {
       aria-labelledby="nested-list-subheader"
       subheader={
         <ListSubheader component="div" id="nested-list-subheader">
-          Your Polls
+          
         </ListSubheader>
       }
     >

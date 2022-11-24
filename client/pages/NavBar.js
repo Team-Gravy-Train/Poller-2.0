@@ -8,10 +8,25 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
+import Dropdown from './dropdown.jsx'
 
 
 
 export default function NavBar() {
+/*
+  let randPoll = 0;
+
+ function randomPoll (min, max) {
+    {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min) + min);
+
+  }
+
+}
+  randomPoll(1, 5)
+*/
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
@@ -27,7 +42,7 @@ export default function NavBar() {
           className='navPoller' 
           variant='outlined'
           sx={{color:'white', borderColor: 'gray', fontSize: '20px', margin: '12px'}}
-          href="/">
+          href="/homepage">
           Poller
           </Button>
           <Button 
@@ -43,9 +58,14 @@ export default function NavBar() {
           >SignUp
           </Button>
           <Button
-          href="/1/Display" 
+          href="/" 
           sx={{color:'white', borderColor: 'gray'}}
-          >Display1
+          >Add a Poll
+          </Button>
+          <Button 
+          sx={{color:'white', borderColor: 'gray'}}
+          href="/1" 
+          >Take a Poll!
           </Button>
         </Toolbar>
       </AppBar>
