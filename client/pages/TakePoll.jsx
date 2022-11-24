@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 // first we need to grab the options for the poll
 // display them on the page
 // create functionality that when one option is clicked, it'll invoke the fetch post request to add voter to database
-// then route them to homepage 
+// then route them to homepage
 // then they can check out the different polls
 
 function TakePoll() {
@@ -70,7 +70,7 @@ function TakePoll() {
       },
       body: JSON.stringify(dataToSend),
     })
-  
+
     navigate("/homepage");
   }
 
@@ -92,7 +92,7 @@ function TakePoll() {
       <h2>{prompt}</h2>
       <form onSubmit={submit}>
         {checkBoxOptions}
-     
+
         <div className="submitButton">
         <input type='text' onChange={(event) => handle(event)} placeholder="enter your name"></input>
         <input type='submit' value="Submit!"></input>
