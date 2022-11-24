@@ -11,7 +11,7 @@ body {
 }
 
 .displayPoll {
-    background-image: url(https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=2000);
+    /* background-image: url(https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?w=2000); */
     background-size: cover;
     display: flex;
     width: 100%;
@@ -53,13 +53,6 @@ body {
 .MuiToolbar-root {
     background-color: #023047;
   }
-
- .allcards {
-    display: flex;
-    align-items: space-around;
- }
-
-
 
 
 
@@ -128,4 +121,8 @@ body {
   margin-top: 1rem;
   display: flex;
   gap: 1rem;
+}
+
+.mainCard {
+  background-color: #457b9d;
 }
